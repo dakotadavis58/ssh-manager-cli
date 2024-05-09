@@ -1,0 +1,26 @@
+{
+  "name": "ssh-manager",
+  "version": "1.0.0",
+  "description": "Manage SSH connections with batch file automation.",
+  "main": "sshManager.js",
+  "type": "module",
+  "bin": {
+    "ssh-manager": "./sshManager.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ssh",
+    "automation",
+    "cli",
+    "batch",
+    "connection"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^8.2.6",
+    "yargs": "^17.7.2"
+  }
+}
