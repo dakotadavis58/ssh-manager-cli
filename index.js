@@ -6,6 +6,7 @@ import inquirer from "inquirer";
 import { exec } from "child_process";
 import yargs from "yargs/yargs";
 import { hideBin } from "yargs/helpers";
+import { spawn } from "child_process";
 
 const homeDir = process.env.HOME || process.env.USERPROFILE;
 const sshDir = join(homeDir, ".ssh");
@@ -27,6 +28,25 @@ async function ensureConfig() {
     ]);
     await fs.writeFile(configPath, JSON.stringify(answers, null, 2));
     return answers;
+  }
+}
+
+function getShellCommand(filePath) {
+  switch (process.platform) {
+    case "win32":
+      return {
+        command: "cmd.exe",
+        args: ["/c", "start", "cmd.exe", "/k", filePath],
+      };
+    case "darwin":
+      return { command: "open", args: ["-a", "Terminal", filePath] };
+    case "linux":
+      return {
+        command: "x-terminal-emulator",
+        args: ["-e", `bash ${filePath}`],
+      };
+    default:
+      throw new Error("Unsupported platform");
   }
 }
 
@@ -104,7 +124,14 @@ async function listBatchFiles(destinationFolder) {
 
 function connectToServer(filename, destinationFolder) {
   const filePath = join(destinationFolder, filename);
-  exec(`start cmd.exe /k "${filePath}"`);
+  const shellCommand = getShellCommand(filePath);
+
+  const process = spawn(shellCommand.command, shellCommand.args, {
+    detached: true,
+    stdio: "ignore",
+  });
+
+  process.unref();
 }
 
 async function getPEMFiles() {

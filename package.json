@@ -5,7 +5,7 @@
   "main": "sshManager.js",
   "type": "module",
   "bin": {
-    "ssh-manager": "./sshManager.js"
+    "ssh-manager": "./index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
