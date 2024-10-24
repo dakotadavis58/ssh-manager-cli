@@ -1,14 +1,18 @@
 {
-  "name": "ssh-manager",
-  "version": "1.0.0",
-  "description": "Manage SSH connections with batch file automation.",
-  "main": "sshManager.js",
+  "name": "@dakotadavis58/ssh-manager-cli",
+  "version": "1.0.1",
+  "description": "A command-line tool to manage SSH connections using batch files.",
+  "main": "index.js",
   "type": "module",
   "bin": {
     "ssh-manager": "./index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dakotadavis58/ssh-manager-cli.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [
     "ssh",
@@ -20,7 +24,7 @@
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
-    "inquirer": "^8.2.6",
-    "yargs": "^17.7.2"
+    "inquirer": "^8.0.0",
+    "yargs": "^17.0.1"
   }
 }
