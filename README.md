@@ -1,44 +1,47 @@
 # SSH CLI Helper
 
-This is a command-line tool to help manage SSH connections using batch files. It allows you to create and connect to SSH sessions easily. I created this project to help me manage my SSH connections to my servers at work and to test out creating and setting up my own CLI tools.
+SSH CLI Helper is a command-line tool designed to streamline the management of SSH connections using batch files. This tool simplifies the process of creating and connecting to SSH sessions, making it an essential utility for developers and system administrators who frequently connect to remote servers.
+
+## Why I Created This Tool
+
+I developed SSH CLI Helper to efficiently manage my SSH connections to various servers at work. The repetitive task of manually setting up SSH connections can be cumbersome and error-prone. This project not only addresses that challenge but also serves as a practical exercise in building and deploying CLI tools.
 
 ## Features
 
-- Create SSH batch files with ease.
-- Connect to servers using existing batch files.
-- Supports Windows, macOS, and Linux.
+- **Easy Batch File Creation**: Quickly generate SSH batch files with minimal input.
+- **Seamless Connections**: Connect to servers using pre-configured batch files.
+- **Cross-Platform Support**: Works on Windows, macOS, and Linux.
+
+## Skills Demonstrated
+
+- **Node.js Development**: Utilizes modern JavaScript features and Node.js modules.
+- **CLI Design**: Implements a user-friendly command-line interface with yargs.
+- **File System Management**: Efficiently handles file creation and configuration storage.
+- **Cross-Platform Compatibility**: Adapts to different operating systems for a consistent user experience.
 
 ## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/dakotadavis58/ssh-manager-cli.git
-   cd ssh-manager-cli
-   ```
+To install SSH CLI Helper globally, use npm:
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Link the script globally:
-   ```bash
-   npm link
-   ```
+```bash
+npm install -g @dakotadavis58/ssh-manager-cli
+```
 
 ## Usage
 
 ### Initial Setup
 
-On the first run, you will be prompted to enter a destination folder where your SSH batch files will be saved. This location will be stored in a configuration file, so you won't need to enter it again in future sessions.
+On the first run, you will be prompted to specify a destination folder for your SSH batch files. This configuration is saved for future use, eliminating the need for repeated setup.
 
 ### Create a New SSH Batch File
 
-To create a new SSH batch file, run:
+To create a new SSH batch file, execute:
 
 ```bash
 ssh-manager create
 ```
+
+Follow the prompts to enter the server IP, username, and select a PEM file.
 
 ### Connect Using an Existing SSH Batch File
 
@@ -48,10 +51,22 @@ To connect using an existing batch file, run:
 ssh-manager connect
 ```
 
+Select the desired batch file from the list to initiate the connection.
+
 ## Options
 
-- `--destination, -d`: Specify a different folder for SSH batch files temporarily. This does not change the stored configuration.
+- `--destination, -d`: Temporarily specify a different folder for SSH batch files. This does not alter the stored configuration.
+
+## Benefits of Using SSH CLI Helper
+
+- **Efficiency**: Automates repetitive tasks, saving time and reducing errors.
+- **Convenience**: Centralizes SSH connection management in a single tool.
+- **Scalability**: Easily manage multiple server connections without manual setup.
 
 ## License
 
 This project is licensed under the MIT License.
+
+## Conclusion
+
+SSH CLI Helper is a powerful tool for anyone who frequently connects to remote servers. By automating the setup and connection process, it enhances productivity and reduces the potential for errors. Whether you're a developer, system administrator, or IT professional, this tool is designed to make your workflow more efficient and enjoyable.

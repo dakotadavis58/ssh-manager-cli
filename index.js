@@ -51,6 +51,7 @@ function getShellCommand(filePath) {
 }
 
 const argv = yargs(hideBin(process.argv))
+  .scriptName("ssh-manager")
   .command(
     "create",
     "Create a new SSH batch file",
